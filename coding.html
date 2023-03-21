@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding</title>
+    <style>
+        body {
+            background-color: #6699A1;
+        }
+
+        header {
+            font-family: kaiti;
+            color: #6699A1;
+            background-color: #eee;
+            text-align: center;
+            font-size: 70px;
+
+        }
+
+        h2 {
+            color: #eee;
+            font-size: 30px;
+
+        }
+
+        nav {
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Helvetica, sans-serif;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            font-family: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Helvetica, sans-serif;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #eee;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #eee;
+            color: rgb(205, 55, 55);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10%;
+        }
+
+        .back-to-top:hover {
+            background-color: #fff;
+            font-weight: bold;
+            color: rgb(205, 55, 55);
+        }
+
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10%;
+        }
+
+        .back-to-home:hover {
+            background-color: #fff;
+            font-weight: bold;
+            color: rgb(205, 55, 55);
+        }
+
+        details {
+            padding: 5px;
+            
+        }
+        pre{
+            color:#fff;
+            background-color: #000;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        編程
+    </header>
+    <a href="index.html" class="back-to-home">主頁</a>
+    <a href="#" class="back-to-top">頂部</a>
+
+    <nav>
+        <details>
+            <summary>判斷數的正負</summary>
+            <pre class="brush: python">
+n = int(input())
+if n==0:
+    print('zero')
+elif n > 0:
+    print('positive')
+else:
+    print('negative')
+        </pre>
+        </details>
+
+        <details>
+            <summary>平方數計算</summary>
+            <pre class="brush: python">
+n = int(input())
+a = list(map(int,input().split()))
+for i in a:
+    print(i*i,end =' ')
+        </pre>
+        </details>
+
+        <details>
+            <summary>平方和的計算</summary>
+            <pre class="brush: python">
+n = int(input())
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+ans = 0
+for i in range(n):
+    ans += a[i] * b[i]
+print(ans,end =' ')
+
+        </pre>
+        </details>
+
+        </pre>
+        </details>
+        <details>
+            <summary>二維數組回形遍歷</summary>
+            <pre class="brush: python">
+n, m = map(int,input().split())
+a = []
+b = []
+
+for j in range(0,n):
+    b = list(map(int,input().split()))
+    a.append(b)
+r = 0
+c = 1
+cnt =0
+
+while(True):
+    for i in range(0+r,m-r):
+        print(a[r][i])
+        cnt+=1
+    if(cnt == n*m):
+        break
+    for i in range(0+c,n-c):
+        print(a[i][m-1-r])
+        cnt+=1
+    if(cnt == n*m):
+        break
+    for i in range(0+r,m-r):
+        print(a[n-1-r][m-1-i])
+        cnt+=1
+    if(cnt == n*m):
+        break
+    for i in range(0+c,n-c):
+        print(a[n-1-i][r])
+        cnt+=1
+    if(cnt == n*m):
+        break
+    r += 1
+    c += 1
+    
+        </pre>
+        </details>
+
+    </nav>
+
+
+
+</body>
+
+</html>
