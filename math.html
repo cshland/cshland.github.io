@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Math</title>
     <style>
         body {
@@ -73,6 +75,7 @@
             font-weight: bold;
             color: rgb(205, 55, 55);
         }
+
         .back-to-home {
             position: fixed;
             bottom: 20px;
@@ -82,20 +85,29 @@
             text-decoration: none;
             border-radius: 10%;
         }
+
         .back-to-home:hover {
             background-color: #fff;
             font-weight: bold;
             color: rgb(205, 55, 55);
+        }
+        .latex{
+            color: #eee;
+            font-size: 18px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        數學
+        Math
     </header>
     <a href="index.html" class="back-to-home">主頁</a>
     <a href="#" class="back-to-top">頂部</a>
+    <div>
+        <p class="latex">$$e^{i\theta} = \cos{\theta} + i\sin{\theta}$$</p>
+    </div>
+
 
 </body>
 
