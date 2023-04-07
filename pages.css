@@ -115,7 +115,7 @@ button:hover {
 
 img {
     max-width: 20%;
-    height: 20%;
+    height: auto;
     margin-bottom: 20px;
     cursor: pointer;
 }
