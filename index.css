@@ -1,0 +1,89 @@
+html {
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    /* 默认字体 */
+    font-size: 100%;
+    /* 调整字体大小 */
+    -ms-text-size-adjust: 100%;
+    /* IE浏览器 */
+    -webkit-text-size-adjust: 100%;
+    /* FireFox浏览器 */
+    background-color: #ABBBCC;
+    text-align: center;
+    padding: 5px;
+}
+
+header {
+    background: #333;
+    color: #ABBBCC;
+    font-size: 16px;
+    font-family: "fangsong";
+    padding: 10px;
+}
+
+body {
+    padding: 10px;
+    margin: 0;
+    /* 外边距 */
+    padding: 0;
+    /* 内边距 */
+    border: 0;
+    /* 边框 */
+}
+
+h1 {
+
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+nav {
+
+
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    outline: 20;
+    background-color: #333;
+    color: #ABBBCC;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ccc;
+    color: #333;
+}
+
