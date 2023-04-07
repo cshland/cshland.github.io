@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Day1</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        function showOverlay(imageSrc) {
+            var overlay = document.getElementById('overlay');
+            var overlayImage = overlay.getElementsByTagName('img')[0];
+            overlayImage.src = imageSrc;
+            overlay.style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</head>
+
+<header>
+    <h1>
+        記錄是為了不被遺忘
+    </h1>
+    感受山與城——杭州2023
+</header>
+
+<body id="b">
+
+    <h2>第1天</h2>
+    <div id="c" style="text-align: left;">
+        <p>
+            <i>12：10</i>　　於澳門國際機場乘搭澳門航空NX225前往杭州蕭山國際機場。
+        </p>
+        <div class="container">
+            <img src="images/day1/airport.jpeg" alt="" onclick="showOverlay('images/day1/airport.jpeg')">
+            <figcaption>起飛前</figcaption>
+
+            <img src="images/day1/fly.jpg" alt="" onclick="showOverlay('images/day1/fly.jpg')">
+            <figcaption>在飛機上鳥</figcaption>
+            <div class="overlay" id="overlay">
+                <img src="" alt="overlay-image" onclick="hideOverlay()">
+            </div>
+        </div>
+        <hr />
+
+        <p>
+            <i>14：35</i>　　抵達杭州。
+        </p>
+        <hr />
+
+        <p>
+            <i>15：30</i>　　遊西湖。
+        </p>
+        <div class="container">
+            <img src="images/day1/temple.JPG" alt="" onclick="showOverlay('images/day1/temple.JPG')">
+            <figcaption>西湖邊上的城隍廟</figcaption>
+
+            <img src="images/day1/whpm.JPG" alt="" onclick="showOverlay('images/day1/whpm.JPG')">
+            <figcaption>世界遺產</figcaption>
+
+            <img src="images/day1/sunset.JPG" alt="" onclick="showOverlay('images/day1/sunset.JPG')">
+            <figcaption>令人陶醉的日落</figcaption>
+
+            <img src="images/day1/xihu.JPG" alt="" onclick="showOverlay('images/day1/xihu.JPG')">
+            <figcaption>杭州西湖</figcaption>
+
+            <img src="images/day1/cuiguangting.JPG" alt="" onclick="showOverlay('images/day1/cuiguangting.JPG')">
+            <figcaption>翠光亭</figcaption>
+            <div class="overlay" id="overlay">
+                <img src="" alt="overlay-image" onclick="hideOverlay()">
+            </div>
+        </div>
+        <hr />
+
+        <p>
+            <i>19：00</i>　　夜幕降臨。
+        </p>
+        <div class="container">
+            <img src="images/day1/night.JPG" alt="" onclick="showOverlay('images/day1/night.jpeg')">
+            <figcaption>夜幕降臨了</figcaption>
+
+            <div class="overlay" id="overlay">
+                <img src="" alt="overlay-image" onclick="hideOverlay()">
+            </div>
+        </div>
+        <hr />
+
+        <p>
+            <i>20：00</i>　　晚飯時間。
+        </p>
+        <hr />
+
+        <p>
+            <i>21：30</i>　　入住杭州菲住布渴酒店。
+        </p>
+        <div class="container">
+            <img src="images/day1/hotel.jpeg" alt="" onclick="showOverlay('images/day1/hotel.jpeg')">
+            <figcaption>酒店合照</figcaption>
+
+            <div class="overlay" id="overlay">
+                <img src="" alt="overlay-image" onclick="hideOverlay()">
+            </div>
+        </div>
+        <hr />
+
+
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="day1.html">Day1</a>
+        <a href="day2.html">Day2</a>
+        <a href="day3.html">Day3</a>
+        <a href="day4.html">Day4</a>
+        <a href="day5.html">Day5</a>
+        <a href="day6.html">Day6</a>
+        <a href="moinfo.html">More Info</a>
+    </nav>
+
+    <h3>
+        至此，Day1已完結，如若查看其他內容，請點擊上面的鏈接。
+    </h3>
+    <!--<button onclick="window.location.href='index.html'">返回首頁</button>-->
+</body>
+
+</html>
