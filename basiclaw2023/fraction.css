@@ -1,0 +1,190 @@
+main {
+	padding-bottom: 88px;
+}
+
+#form {
+	width: 85%;
+	max-width: 1139px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 7px 28px 0px rgba(0, 0, 0, 0.11);
+	margin: auto;
+	margin-top: 24px;
+	padding-bottom: 15px;
+}
+
+select {
+	width: 340px;
+	height: 44px;
+	background: rgba(239, 238, 248, 1);
+	box-shadow: 0px 1px 9px 0px rgba(94, 119, 255, 0.2);
+	border-radius: 4px;
+	border: 1px solid rgba(94, 119, 255, 1);
+	padding-left: 1em;
+	font-family: "Î¢ÈíÑÅºÚ";
+	margin-bottom: 16px;
+	margin-top: 6px;
+}
+
+.schoolsBox {
+	text-align: center;
+	z-index: 999;
+	position: absolute;
+	width: 340px;
+	margin-top: -12px;
+	/*   border: 1px solid rgb(195, 197, 206); 
+    background: #efeef8;*/
+	border: 1px solid rgba(94, 119, 255, 1);
+	background: #ffffff;
+	min-height: 90px;
+	max-height: 200px;
+	overflow: auto;
+}
+
+.schoolsBox .schoolItem {
+	background: rgba(239, 238, 248, 1);
+	cursor: pointer;
+}
+
+.schoolsBox .noSchoolItem {
+	background: #ececec;
+}
+
+.schoolsBox p {
+	border: 1px solid rgb(195, 197, 206);
+	padding: 10px;
+	margin: 0;
+}
+
+input {
+	width: 325px;
+	height: 40px;
+	background: rgba(239, 238, 248, 1);
+	box-shadow: 0px 1px 9px 0px rgba(94, 119, 255, 0.2);
+	border-radius: 4px;
+	border: 1px solid rgba(94, 119, 255, 1);
+	padding-left: 1em;
+	font-family: "å¾®è½¯é›…é»‘";
+}
+
+.infoBox {
+	width: 350px;
+	margin-left: 100px;
+}
+
+button {
+	font-size: 18px;
+	background: linear-gradient(90deg, rgba(3, 167, 137, 1) 0%,
+		rgba(4, 134, 111, 1) 100%);
+	border-radius: 25px;
+	border: none;
+	background-color: transparent;
+}
+
+.button {
+	min-width: 156px;
+	/* height: 48px;  */
+}
+
+#form div div input {
+	margin-bottom: 16px;
+	margin-top: 6px;
+}
+
+#items {
+	width: 550px;
+	margin: auto;
+	padding-top: 48px;
+	position: relative;
+}
+
+#description label {
+	width: 219px;
+	height: 56px;
+	font-size: 20px;
+	font-family: PingFangHK-Semibold, PingFangHK;
+	font-weight: bold;
+	color: rgba(88, 88, 88, 1);
+	line-height: 28px;
+}
+
+#description {
+	width: 480px;
+	margin: auto;
+	margin-bottom: 48px;
+	text-align: center;
+}
+
+#description #tips2 {
+	width: auto;
+	margin: auto;
+}
+
+#buttonItem {
+	text-align: center;
+	margin-top: 5px;
+}
+
+button label {
+	color: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 760px) {
+	.schoolsBox {
+		width: 96%;
+	}
+	select {
+		width: 100%;
+		margin-bottom: 16px;
+		margin-top: 6px;
+	}
+	#form div div input {
+		margin-bottom: 16px;
+		margin-top: 6px;
+	}
+	#buttonItem {
+		margin-top: 25px;
+	}
+	.infoBox {
+		width: 96%;
+		margin: auto;
+	}
+	button {
+		font-size: 16px;
+	}
+	.button {
+		min-width: 112px !important;
+		/* height: 43px; */
+	}
+	#description {
+		margin-bottom: 25px;
+		text-align: center;
+		width: 100%;
+	}
+	#items {
+		width: 90%;
+		max-width: 400px;
+		padding-top: 24px;
+	}
+	input {
+		width: 98%;
+		padding-left: 2%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#form {
+		width: 93%;
+	}
+	#items {
+		width: 93%;
+	}
+	main {
+		padding-bottom: 68px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.button {
+		min-width: 100px !important;
+	}
+}

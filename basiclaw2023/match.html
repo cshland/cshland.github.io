@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.lawmatch.net/basicLaw/frontend/public/fraction.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<title>2023全澳師生憲法和基本法知識學習競賽活動</title>
+<link type="text/css" rel="styleSheet" href="template.css">
+<link type="text/css" rel="styleSheet" href="fraction.css">
+<link type="text/css" rel="styleSheet" href="situation.css">
+
+	
+</script></head>
+
+
+
+
+
+
+
+<body>
+	<div class="container">
+		<header>
+			<img id="top" class="top" src="top.png">
+			<!-- <image class="phonetop" src="../../images/public/phone/top.png"></image> -->
+			<div class="logo_mobile">
+				<img style="width: 100%;" src="BannerPhoneBg.png">
+				<div class="BannerPhoneTitle">
+					<img style="max-width: 100%;width: 97%;" src="BannerPhoneTitle.png">
+				</div>
+			</div>
+		</header>
+		<main>
+		<div id="form" name="form">
+			<div id="items">
+				<div id="description" name="description">
+					<div id="tips">
+						<label>提交成功，感謝你的參與！</label>
+					</div>
+					<div id="tips2">
+						<label>您的得分是 <span id="score" class="red">100</span><span id="scoreTip">分，可獲得抽獎機會 ，歡迎繼續參與！</span>
+						</label>
+					</div>
+				</div>
+				<div id="infoBox" class="infoBox">
+					<div id="nameItem" class="nameItem" name="nameItem">
+						<label>姓名<span class="red" autofocus="autofocus">*</span></label><br>
+						<input id="name" type="text">
+					</div>
+					<div id="telItem" class="telItem" name="telItem">
+						<label>澳門聯繫電話<span class="red">*</span></label><br> <input id="phone" type="tel" placeholder="請輸入8位數字, 可以是手機或是固網">
+					</div>
+					<div id="studentItem" class="identityItem">
+						<label>學生證編號<span class="red">*</span></label><br> <input id="studentNo" type="text" placeholder="請輸入首7位數字，如: 1234567-X，只填寫1234567">
+					</div>
+
+					<div id="teacherItem" class="hiddenReback identityItem">
+						<label>教師證編號<span class="red">*</span></label><br> <input id="teacherNo" type="text" placeholder="請輸入首7位數字，如: 1234567-X，只填寫1234567">
+					</div>
+
+					<div id="schoolDiv" class=" identityItem" name="identityItem">
+						<label>學校名稱<span class="red">*</span></label><br> <input id="school" type="text" placeholder="輸入中文校名或關鍵字，選擇查詢到的學校">
+						<div id="schoolsBox" class="schoolsBox hiddenReback">
+							<p class="schoolItem">
+								<span>學校1</span>
+							</p>
+							<p class="schoolItem">
+								<span>學校2</span>
+							</p>
+							<p class="schoolItem">
+								<span>學校3</span>
+							</p>
+							<p class="schoolItem">
+								<span>學校4</span>
+							</p>
+						</div>
+					</div>
+					<div id="gradeDiv" style="display: none;" class=" identityItem" name="identityItem">
+						<label>年級<span class="red">*</span></label><br> <select id="gradeSelect">
+
+						</select>
+					</div>
+					<div id="classDiv" style="display: none;" class="hidden identityItem" name="identityItem">
+						<label>班別<span class="red">*</span></label><br> <input style="margin-bottom: 0px;" id="schoolClass" type="text" placeholder="請輸入班別">
+					</div>
+					<div style="margin-top: 10px; height: 45px;">
+						<span id="msg" class="red"></span>
+					</div>
+				</div>
+				<div id="buttonItem">
+				    <button id="answerInfoBtn" class="button">
+						<label>答題情況</label>
+					</button>
+					<button id="restart" name="submit" class="button">
+						<label id="restartLable">再來一遍</label>
+					</button>	
+					<br> <br>		
+					<button id="submit" name="submit" class="button">
+						<label id="submitLable">提交</label>
+					</button>		
+					<button id="backHome" class="button">
+						<label>返回首頁</label>
+					</button>		
+				</div>
+				<div style="text-align: center; margin-top: 40px; font-size: 14px; color: #767676;">
+					<span>所收集的資料只限本次活動，活動完後會刪除</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="situationBox" class="situation hiddenReback">
+			<div>
+				<div class="answerSituation">答题情况</div>
+				<div id="questions"></div>
+				<div class="buttonItem">
+					<button id="errorAnalysis" class="big-btn">錯題解析</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="analysisBox" class="items hiddenReback">
+			<div class="answerSituation">
+				<span>錯題解析</span>
+			</div>
+			<div class="exerice">
+				<span class="title"><label id="analysisLogo" class="exericeLogo">單選題</label> <span id="intitle"> </span></span>
+				<div>
+					<ul id="analysis_ul" class="choice_ul">
+
+					</ul>
+				</div>
+				<div class="buttonItem">
+					<button id="rebackAnalysis">
+						<label>上一題</label>
+					</button>
+					<button id="nextAnalysis">
+						<label>下一題</label>
+					</button>
+					<button id="backScore" class="big-btn">
+						<label>返回提交</label>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		</main>
+		<footer id="foot">
+			<label id="statement">© 2023 - 澳門中華教育會版權所有</label>
+		</footer>
+	</div>
+	<div id="backg" class="hiddenReback"></div>
+	<div id="alertBox" class="hiddenReback">
+		<div id="tipsTitle">提示：</div>
+		<div id="tipsContent"></div>
+		<div id="certain">
+			<input id="cancelBtn" class="hiddenReback" type="button" value="取 消">
+			<input id="sureBtn" type="button" value="确 定"> <input id="submitBtn" class="hiddenReback" type="button" value="确 定">
+		</div>
+	</div>
+
+
+</body></html>
