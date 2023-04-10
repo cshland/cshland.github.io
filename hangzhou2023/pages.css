@@ -1,4 +1,5 @@
 html {
+    
     font-family: system-ui, -apple-system, Arial, sans-serif;
     /* 默认字体 */
     font-size: 100%;
@@ -10,6 +11,23 @@ html {
     background-color: #ABBBCC;
     text-align: center;
     padding: 5px;
+    display: grid;
+    place-items: center;
+}
+
+
+
+body {
+    width: 90%;
+    padding: 10px;
+    margin: 0;
+    /* 外边距 */
+    padding: 0;
+    /* 内边距 */
+    border: 0;
+    /* 边框 */
+    display: grid;
+    place-items: center;
 }
 
 header {
@@ -19,30 +37,20 @@ header {
     font-size: 16px;
     font-family: "fangsong";
     padding: 10px;
-    position: sticky;
-    top: 0;
 }
-
-#b {
-
-    display: grid;
-    place-items: center;
-}
-
 h1 {
 
     font-size: 28px;
 }
 
 h2 {
-    font-size: 20px;
-    padding: 5px;
+    font-size: 24px;
     margin-top: 0;
 }
 
 nav {
     width: 100%;
-    background-color: #f2f2f2;
+    background-color: #333;
     border: 1px solid #ccc;
     margin-bottom: 20px;
     overflow: hidden;
@@ -55,7 +63,7 @@ nav a {
     display: inline-block;
     padding: 10px;
     text-decoration: none;
-    color: #333;
+    color: #ABBBCC;
     font-weight: bold;
     font-size: 18px;
     transition: background-color 0.3s ease-in-out;
@@ -63,8 +71,13 @@ nav a {
 
 nav a:hover {
     outline: 20;
-    background-color: #333;
-    color: #ABBBCC;
+    background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+
+    /* 过渡动画时间 */
+    transition: all 0.4s;
+    color: #333;
 }
 
 p {
@@ -143,7 +156,7 @@ img {
 }
 
 #c {
-    width: 80%;
+    width: 90%;
 }
 
 
