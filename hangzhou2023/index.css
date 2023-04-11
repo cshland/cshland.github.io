@@ -1,5 +1,5 @@
 html {
-    
+
     font-family: system-ui, -apple-system, Arial, sans-serif;
     /* 默认字体 */
     font-size: 100%;
@@ -28,91 +28,267 @@ body {
     /* 边框 */
 }
 
-header {
-    background: #333;
-    color: #ABBBCC;
-    font-size: 16px;
-    font-family: "fangsong";
-    padding: 10px;
+@media (max-width: 1440px) {
+    header {
+        background: #333;
+        color: #ABBBCC;
+        font-size: 16px;
+        font-family: "fangsong";
+        padding: 10px;
+    }
+
+    h1 {
+
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 0;
+    }
+
+    nav {
+
+
+        margin-bottom: 20px;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        /*display: inline-block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 18px;
+        transition: background-color 0.3s ease-in-out;*/
+        /* 简单背景色，字体调大 */
+        font-size: 3vmin;
+        color: #385D85;
+        padding: 15px;
+        font-weight: bold;
+
+        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
+        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+
+        /* 过渡动画时间 */
+        transition: all 0.4s;
+    }
+
+    a:hover {
+        /*outline: 20;
+        background-color: #333;
+        color: #ABBBCC;*/
+        /* 鼠标放上来，改变背景大小、位置 */
+        background-size: 100% 10%;
+        background-position-y: 88%;
+
+        /* 改变文字颜色，文字添加简单描边 */
+        color: #2c2c2c;
+        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
+            0 0.05em 0 #fcfcfc;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #ccc;
+        color: #333;
+    }
 }
-h1 {
 
-    font-size: 28px;
+
+@media (max-width: 850px) {
+    header {
+        background: #333;
+        color: #ABBBCC;
+        font-size: 14px;
+        font-family: "fangsong";
+        padding: 8px;
+    }
+
+    h1 {
+
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-top: 0;
+    }
+
+    nav {
+
+
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        /*display: inline-block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 18px;
+        transition: background-color 0.3s ease-in-out;*/
+        /* 简单背景色，字体调大 */
+        font-size: 16px;
+        color: #385D85;
+        padding: 8px;
+        font-weight: bold;
+
+        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
+        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
+
+        /* 过渡动画时间 */
+        transition: all 0.4s;
+    }
+
+    a:hover {
+        /*outline: 20;
+        background-color: #333;
+        color: #ABBBCC;*/
+        /* 鼠标放上来，改变背景大小、位置 */
+        background-size: 100% 10%;
+        background-position-y: 88%;
+
+        /* 改变文字颜色，文字添加简单描边 */
+        color: #2c2c2c;
+        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
+            0 0.05em 0 #fcfcfc;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+        background-color: #ccc;
+        color: #333;
+    }
 }
 
-h2 {
-    font-size: 24px;
-    margin-top: 0;
-}
+@media (max-width: 460px) {
+    header {
+        background: #333;
+        color: #ABBBCC;
+        font-size: 12px;
+        font-family: "fangsong";
+        padding: 5px;
+    }
 
-nav {
+    h1 {
+
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    nav {
 
 
-    margin-bottom: 20px;
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
+        margin-bottom: 10px;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
 
-a {
-    /*display: inline-block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 18px;
-    transition: background-color 0.3s ease-in-out;*/
-    /* 简单背景色，字体调大 */
-    font-size: 3vmin;
-    color: #385D85;
-    padding: 15px;
-    font-weight: bold;
-    
-    /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
-    background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
-    background-size: 100% 90%;
-    background-repeat: no-repeat;
+    a {
+        /*display: inline-block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 18px;
+        transition: background-color 0.3s ease-in-out;*/
+        /* 简单背景色，字体调大 */
+        font-size: 14px;
+        color: #385D85;
+        padding: 5px;
+        font-weight: bold;
 
-    /* 过渡动画时间 */
-    transition: all 0.4s;
-}
+        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
+        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+        background-size: 100% 90%;
+        background-repeat: no-repeat;
 
-a:hover {
-    /*outline: 20;
-    background-color: #333;
-    color: #ABBBCC;*/
-    /* 鼠标放上来，改变背景大小、位置 */
-    background-size: 100% 10%;
-    background-position-y: 88%;
+        /* 过渡动画时间 */
+        transition: all 0.4s;
+    }
 
-    /* 改变文字颜色，文字添加简单描边 */
-    color: #2c2c2c;
-    text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
-        0 0.05em 0 #fcfcfc;
-}
+    a:hover {
+        /*outline: 20;
+        background-color: #333;
+        color: #ABBBCC;*/
+        /* 鼠标放上来，改变背景大小、位置 */
+        background-size: 100% 10%;
+        background-position-y: 88%;
 
-p {
-    font-size: 18px;
-    line-height: 1.5;
-}
+        /* 改变文字颜色，文字添加简单描边 */
+        color: #2c2c2c;
+        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
+            0 0.05em 0 #fcfcfc;
+    }
 
-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
+    p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
 
-button:hover {
-    background-color: #ccc;
-    color: #333;
-}
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 5px;
+        font-size: 14px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
 
-:root {
-    --animate-delay: 0.2s;
+    button:hover {
+        background-color: #ccc;
+        color: #333;
+    }
 }
