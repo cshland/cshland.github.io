@@ -1,294 +1,57 @@
-html {
+<!DOCTYPE html>
+<html lang="zh-cn">
 
-    font-family: system-ui, -apple-system, Arial, sans-serif;
-    /* 默认字体 */
-    font-size: 100%;
-    /* 调整字体大小 */
-    -ms-text-size-adjust: 100%;
-    /* IE浏览器 */
-    -webkit-text-size-adjust: 100%;
-    /* FireFox浏览器 */
-    background-color: #ABBBCC;
-    text-align: center;
-    padding: 5px;
-    display: grid;
-    place-items: center;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Hangzhou2023</title>
+</head>
+<script>
+    window.location = "#top";//自动跳转到锚点处
+</script>
 
-
-
-body {
-    width: 90%;
-    padding: 10px;
-    margin: 0;
-    /* 外边距 */
-    padding: 0;
-    /* 内边距 */
-    border: 0;
-    /* 边框 */
-}
-
-@media (max-width: 2560px) {
-    header {
-        background: #333;
-        color: #ABBBCC;
-        font-size: 16px;
-        font-family: "fangsong";
-        padding: 10px;
-    }
-
-    h1 {
-
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 24px;
-        margin-top: 0;
-    }
-
-    nav {
+<body>
+    <header name="top" class="animate__animated animate__zoomInUp">
+        <h1>
+            記錄是為了不被遺忘
+        </h1>
+        感受山與城——杭州2023
+    </header>
+    <div class="animate__animated animate__flipInX animate__delay-1s" >
+        <h2>
+            Home
+        </h2>
+        <p>
+            旅程由2023年4月1日至4月6日，共6日5夜，第1天夜菲住布渴酒店，其後4夜住蕭山眾安假日酒店。
 
 
-        margin-bottom: 20px;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-    }
+        </p>
+        <p style="text-align: left">
+            游覽了西湖湧金廣場、良渚文化遺址公園、良渚博物院、中國國家版本館、西溪國家濕地公園、
+            夢想小鎮、阿里雲SUPET工業互聯網展廳、親橙里、雲棲小鎮、中國數位音樂科技展廳、
+            錢江新城—城市陽臺、中國茶文化博物館並體驗點茶文化（梅家塢村）、京杭大運河博物館、小河歷史文化街（小河直街）、胡雪巖故居、河坊街。
+        </p>
+    </div>
+    <p style="color: red;" class="animate__animated animate__lightSpeedInLeft animate__delay-1s">
+        <strong>請注意！以下的超鏈接載入需要較大流量！而且每一張圖片都可以點擊以放大瀏覽</strong></p>
+    <nav class="animate__animated animate__lightSpeedInLeft animate__delay-1s">
 
-    a {
-        /*display: inline-block;
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-        transition: background-color 0.3s ease-in-out;*/
-        /* 简单背景色，字体调大 */
-        font-size: 3vmin;
-        color: #385D85;
-        padding: 15px;
-        font-weight: bold;
-
-        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
-        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
-        background-size: 100% 90%;
-        background-repeat: no-repeat;
-
-        /* 过渡动画时间 */
-        transition: all 0.4s;
-    }
-
-    a:hover {
-        /*outline: 20;
-        background-color: #333;
-        color: #ABBBCC;*/
-        /* 鼠标放上来，改变背景大小、位置 */
-        background-size: 100% 10%;
-        background-position-y: 88%;
-
-        /* 改变文字颜色，文字添加简单描边 */
-        color: #2c2c2c;
-        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
-            0 0.05em 0 #fcfcfc;
-    }
-
-    p {
-        font-size: 18px;
-        line-height: 1.5;
-    }
-
-    button {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        font-size: 18px;
-        margin-bottom: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    button:hover {
-        background-color: #ccc;
-        color: #333;
-    }
-}
+        <!--<a href="index.html">Home</a>-->
+        <a href="day1.html#"><em>DAY1</em></a>
+        <a href="day2.html#"><em>DAY2</em></a>
+        <a href="day3.html#"><em>DAY3</em></a>
+        <a href="day4.html#"><em>DAY4</em></a>
+        <a href="day5.html#"><em>DAY5</em></a>
+        <a href="day6.html#"><em>DAY6</em></a>
+        <a href="moinfo.html#"><em>MORE INFO</em></a>
+    </nav>
 
 
-@media (max-width: 850px) {
-    header {
-        background: #333;
-        color: #ABBBCC;
-        font-size: 14px;
-        font-family: "fangsong";
-        padding: 8px;
-    }
 
-    h1 {
+</body>
 
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 18px;
-        margin-top: 0;
-    }
-
-    nav {
-
-
-        margin-bottom: 10px;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    a {
-        /*display: inline-block;
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-        transition: background-color 0.3s ease-in-out;*/
-        /* 简单背景色，字体调大 */
-        font-size: 16px;
-        color: #385D85;
-        padding: 8px;
-        font-weight: bold;
-
-        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
-        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
-        background-size: 100% 90%;
-        background-repeat: no-repeat;
-
-        /* 过渡动画时间 */
-        transition: all 0.4s;
-    }
-
-    a:hover {
-        /*outline: 20;
-        background-color: #333;
-        color: #ABBBCC;*/
-        /* 鼠标放上来，改变背景大小、位置 */
-        background-size: 100% 10%;
-        background-position-y: 88%;
-
-        /* 改变文字颜色，文字添加简单描边 */
-        color: #2c2c2c;
-        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
-            0 0.05em 0 #fcfcfc;
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    button {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 8px;
-        font-size: 16px;
-        margin-bottom: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    button:hover {
-        background-color: #ccc;
-        color: #333;
-    }
-}
-
-@media (max-width: 460px) {
-    header {
-        background: #333;
-        color: #ABBBCC;
-        font-size: 12px;
-        font-family: "fangsong";
-        padding: 5px;
-    }
-
-    h1 {
-
-        font-size: 18px;
-    }
-
-    h2 {
-        font-size: 14px;
-        margin-top: 0;
-    }
-
-    nav {
-
-
-        margin-bottom: 10px;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    a {
-        /*display: inline-block;
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-        transition: background-color 0.3s ease-in-out;*/
-        /* 简单背景色，字体调大 */
-        font-size: 14px;
-        color: #385D85;
-        padding: 5px;
-        font-weight: bold;
-
-        /* 渐变色背景，居中，背景小一点露出行间距，不重复显示 */
-        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
-        background-size: 100% 90%;
-        background-repeat: no-repeat;
-
-        /* 过渡动画时间 */
-        transition: all 0.4s;
-    }
-
-    a:hover {
-        /*outline: 20;
-        background-color: #333;
-        color: #ABBBCC;*/
-        /* 鼠标放上来，改变背景大小、位置 */
-        background-size: 100% 10%;
-        background-position-y: 88%;
-
-        /* 改变文字颜色，文字添加简单描边 */
-        color: #2c2c2c;
-        text-shadow: 0.05em 0.05em 0 #fcfcfc, -0.05em 0.05em 0 #fcfcfc,
-            0 0.05em 0 #fcfcfc;
-    }
-
-    p {
-        font-size: 12px;
-        line-height: 1.5;
-    }
-
-    button {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 5px;
-        font-size: 14px;
-        margin-bottom: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    button:hover {
-        background-color: #ccc;
-        color: #333;
-    }
-}
+</html>
