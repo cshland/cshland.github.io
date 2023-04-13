@@ -28,7 +28,7 @@ body {
     /* 边框 */
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 2560px) {
     header {
         background: #333;
         color: #ABBBCC;
