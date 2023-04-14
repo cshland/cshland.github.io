@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Last Day</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        function showOverlay(imageSrc) {
+            var overlay = document.getElementById('overlay');
+            var overlayImage = overlay.getElementsByTagName('img')[0];
+            overlayImage.src = imageSrc;
+            overlay.style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</head>
+
+<header>
+    <h1>
+        記錄是為了不被遺忘
+    </h1>
+    感受山與城——杭州2023
+</header>
+
+<body id="b">
+
+    <h2>最後一天... <em>說了再見 才發現再也見不到</em> </h2>
+    <div id="c" style="text-align: left;">
+        <p>
+            <i><strong>6：45</strong></i>　　起床。
+        </p>
+        <div class="container">
+            <img src="images/day6/lastbf.jpg" alt="" onclick="showOverlay('images/day6/lastbf.jpg')">
+            <figcaption>『最後的』早餐</figcaption>
+        </div>
+        <hr />
+
+        <p>
+            <i><strong>8：10</strong></i>　　出發（然後在車上聽了一個小時導游的人生經歷，深有感受）。
+        </p>
+        <div class="container">
+            <img src="images/day6/hotel.jpg" alt="" onclick="showOverlay('images/day6/hotel.jpg')">
+            <figcaption>拜拜了親愛的酒店🥺</figcaption>
+        </div>
+        <hr />
+
+        <p>
+            <i><strong>9：10</strong></i>　　胡雪巖故居（他家真大，很容易迷路；也很先進，有中國第一部電話）。
+        </p>
+        <div class="container">
+            <img src="images/day6/home.JPG" alt="" onclick="showOverlay('images/day6/home.JPG')">
+            <figcaption>到處都是植被</figcaption>
+
+            <img src="images/day6/fish.JPG" alt="" onclick="showOverlay('images/day6/fish.JPG')">
+            <figcaption>隨處可見假山魚池</figcaption>
+
+            <img src="images/day6/stage.JPG" alt="" onclick="showOverlay('images/day6/stage.JPG')">
+            <figcaption>看戲的樓臺</figcaption>
+        </div>
+        <hr />
+
+        <p>
+            <i><strong>10：20</strong></i>　　河坊街（買手信，當地人也喜歡在這裡購物）有南宋胡記、王星記、張小泉、胡慶餘堂（胡雪巖開的）、方回春堂等老字號。
+        </p>
+        <div class="container">
+            <img src="images/day6/street.jpg" alt="" onclick="showOverlay('images/day6/street.jpg')">
+            <figcaption>最後的景點</figcaption>
+
+            <img src="images/day6/pharmacy.JPG" alt="" onclick="showOverlay('images/day6/pharmacy.JPG')">
+            <figcaption>胡慶餘堂</figcaption>
+
+            <img src="images/day6/shop.JPG" alt="" onclick="showOverlay('images/day6/shop.JPG')">
+            <figcaption>我也快被吹回澳門了</figcaption>
+
+        </div>
+        <br>
+
+        <div class="container">
+            <img src="images/day6/rain.JPG" alt="" onclick="showOverlay('images/day6/rain.JPG')">
+            <figcaption>雨天終究會墜落<br />摺紙飛機碰到<br />下雨了...</figcaption>
+
+            <img src="images/day6/rain2.JPG" alt="" onclick="showOverlay('images/day6/rain2.JPG')">
+            <figcaption>那場大雨毀了我的攝影夢</figcaption>
+
+            <img src="images/day6/rain3.JPG" alt="" onclick="showOverlay('images/day6/rain3.JPG')">
+            <figcaption>最後的景點的最後記錄...</figcaption>
+
+        </div>
+        <hr />
+
+        <p>
+            <i><strong>13：00</strong></i>　　最後的Lunch。
+        </p>
+
+        <hr />
+
+        <p>
+            <i><strong>14：00</strong></i>　　坐車杭州蕭山國際前往機場。
+        </p>
+        <div class="container">
+            <img src="images/day6/bye.jpg" alt="" onclick="showOverlay('images/day6/bye.jpg')">
+            <figcaption>Bye Hangzhou...</figcaption>
+
+            <img src="images/day6/all.jpg" alt="" onclick="showOverlay('images/day6/all.jpg')">
+            <figcaption>高二合照</figcaption>
+
+        </div>
+        <hr />
+
+        <p>
+            <i><strong>15：25</strong></i>　　原定飛機起飛時間（因海關文件交接問題，延誤至16：47）。
+        </p>
+        <hr />
+
+        <p>
+            <i><strong>16：47</strong></i>　　飛機起飛。
+        </p>
+        <div class="container">
+            <img src="images/day6/inflight.JPG" alt="" onclick="showOverlay('images/day6/inflight.JPG')">
+            <figcaption>在飛機上了</figcaption>
+
+            <img src="images/day6/line.jpg" alt="" onclick="showOverlay('images/day6/line.jpg')">
+            <figcaption>飛機航程</figcaption>
+
+
+            <img src="images/day6/sunset.jpg" alt="" onclick="showOverlay('images/day6/sunset.jpg')">
+            <figcaption>才在飛機上看到日落<br />不過，感謝延誤 </figcaption>
+        </div>
+        <hr />
+
+
+        <div class="overlay" id="overlay">
+            <img src="" alt="overlay-image" onclick="hideOverlay()">
+        </div>
+        <p>
+            <i><strong>最後</strong></i>　　　　只能說百感交集的一天。感謝相遇。
+        </p>
+
+
+
+    </div>
+    <nav>
+
+        <a href="index.html#"><em>HOME</em></a>
+        <a href="day1.html#"><em>DAY1</em></a>
+        <a href="day2.html#"><em>DAY2</em></a>
+        <a href="day3.html#"><em>DAY3</em></a>
+        <a href="day4.html#"><em>DAY4</em></a>
+        <a href="day5.html#"><em>DAY5</em></a>
+        <a style="background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+        background-size: 100% 90%; color: #333;" href="day6.html#"><em>DAY6</em></a>
+        <a href="moinfo.html#"><em>MORE INFO</em></a>
+        <span class="change" style=" outline: 20;
+        background: linear-gradient(30deg, #2cd8d5, #c5c1ff, #ffbac3) center;
+        background-size: 100% 90%;
+        color: #333;">記錄是為了不被遺忘</span>
+    </nav>
+
+    <p>
+        <em><strong>說了再見 才發現再也見不到</strong></em>
+        <br>
+        <span style="color: red;"><strong>請注意！除HOME外的超鏈接載入都需要較大流量！</strong>
+    </p></span>
+    </p>
+    <!--<button onclick="window.location.href='index.html'">返回首頁</button>-->
+</body>
+
+</html>
