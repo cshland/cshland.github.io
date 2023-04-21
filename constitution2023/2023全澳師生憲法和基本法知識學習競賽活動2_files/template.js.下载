@@ -1,0 +1,111 @@
+var score = undefined;
+var group = undefined;
+$(function () {
+	//禁止F5刷新
+	$(document).keydown(function (event) {
+		event = window.event || event;
+		//屏蔽F5刷新键 
+		if (event.keyCode == 116) {
+			event.keyCode = 0;
+			return false;
+		}
+		//屏蔽ctrl+R 
+		if ((event.ctrlKey) && (event.keyCode == 82)) {
+			return false;
+		}
+		//屏蔽 Alt+ 方向键 ← 
+		//屏蔽 Alt+ 方向键 →
+		if ((event.altKey) && ((event.keyCode == 37) || (event.keyCode == 39))) {
+			event.returnValue = false;
+			return false;
+		}
+	});
+
+	//禁止前进或后退按钮
+	$(document).ready(function () {
+		if (window.history && window.history.pushState) {
+			// 当点击浏览器的 后退和前进按钮 时才会被触发
+			$(window).on('popstate', function () {
+				window.history.pushState('forward', null, '');
+				window.history.forward(1);
+			});
+		}
+		window.history.pushState('forward', null, '');  //在IE中必须得有这两行
+		window.history.forward(1);
+		//禁止鼠标右键菜单事件
+		$(document).bind("contextmenu", function (e) {
+			return false;
+		});
+	});
+
+	window.alert = function (str) {
+		$('#tipsContent').html(str);
+		$("#backg").removeClass('hiddenReback');
+		$("#alertBox").removeClass('hiddenReback');
+		$("#sureBtn").removeClass('hiddenReback');
+		$("#submitBtn").addClass('hiddenReback');
+		$("#cancelBtn").addClass('hiddenReback');
+
+	}
+
+	window.confirm = function (str) {
+		$('#tipsContent').html(str);
+		$("#sureBtn").addClass('hiddenReback');
+		$("#submitBtn").removeClass('hiddenReback');
+		$("#cancelBtn").removeClass('hiddenReback');
+		$("#backg").removeClass('hiddenReback');
+		$("#alertBox").removeClass('hiddenReback');
+	}
+
+	$('#sureBtn').click(function () {
+		$("#backg").addClass('hiddenReback');
+		$("#alertBox").addClass('hiddenReback');
+	});
+
+	
+	$('#cancelBtn').click(function () {
+		$("#backg").addClass('hiddenReback');
+		$("#alertBox").addClass('hiddenReback');
+	});
+
+});
+
+
+//获取url上的参数
+function getQueryVariable(variable) {
+	var query = window.location.search.substring(1);
+	var vars = query.split("&");
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split("=");
+		if (pair[0] == variable) { return pair[1]; }
+	}
+	return (false);
+}
+
+function addVisitCount(pageName) {
+	$.ajax({
+		url : getRootPath() + '/servlet/basiclaw/question/api/visitCount?',
+		dataType : 'json',
+		async : false,
+		type : 'get',
+		data : {
+			pageName : pageName
+		},
+		success : function(result) {
+			var result = result;
+		}
+	})
+}
+
+function getRootPath() {
+	//获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+	var curWwwPath = window.document.location.href;
+	//获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	//获取主机地址，如： http://localhost:8083
+	var localhostPaht = curWwwPath.substring(0, pos);
+	//获取带"/"的项目名，如：/uimcardprj
+	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+	return (localhostPaht + projectName);
+}

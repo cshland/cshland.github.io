@@ -1,0 +1,275 @@
+.items {
+	width: 85%;
+	max-width: 1139px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 7px 28px 0px rgba(0, 0, 0, 0.11);
+	margin: auto;
+	margin-top: 2em;
+	position: relative;
+	background: rgba(255, 255, 255, 1);
+}
+
+.exericeLogo {
+	padding-left: 10px;
+	padding-right: 10px;
+	background: rgba(255, 82, 82, 1);
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-size: 18px;
+	margin-right: 7px;
+}
+
+.buttonItem {
+	position: absolute;
+	bottom: 25px;
+	right: 24px;
+}
+
+.title {
+	font-size: 18px;
+}
+
+ul {
+	margin-top: 1em;
+}
+
+li {
+	padding-bottom: 22px;
+	font-size: 16px;
+	list-style: none;
+}
+
+li label {
+	padding-left: 1em;
+}
+
+.exerice {
+	padding-bottom: 83px;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 44px;
+}
+
+#questions {
+	width: 90%;
+	padding-top: 2em;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+.trueItem {
+	margin-top: 2%;
+	margin-left: 1%;
+	width: 68px;
+	height: 68px;
+	background: rgba(102, 195, 151, 1);
+	border-radius: 50%;
+}
+
+.trueItem div {
+	width: 68px;
+	height: 68px;
+	line-height: 68px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 26px;
+}
+
+.falseItem {
+	margin-top: 2%;
+	margin-left: 1%;
+	width: 68px;
+	height: 68px;
+	background: rgba(255, 107, 112, 1);
+	border-radius: 50%;
+}
+
+.falseItem div {
+	width: 68px;
+	height: 68px;
+	line-height: 68px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 26px;
+}
+
+.answerSituation {
+	width: 140px;
+	height: 30px;
+	text-align: center;
+	font-size: 22px;
+	font-family: PingFangHK-Semibold, PingFangHK;
+	font-weight: 600;
+	color: rgba(74, 74, 74, 1);
+	line-height: 30px;
+	margin: auto;
+	padding-top: 18px;
+}
+
+.answerSituation {h3 { margin:0;
+	
+}
+
+}
+#intitle {
+	margin-left: 0em;
+}
+
+.right {
+	width: 200px;
+	height: 16px;
+	background: rgba(188, 231, 211, 1);
+}
+
+.wrong {
+	width: 145px;
+	height: 22px;
+	background: rgba(255, 179, 179, 1);
+}
+
+.tapNormal {
+	margin-bottom: 22px !important;
+	padding-bottom: 0;
+	padding-left: 30px;
+	background: url('../../../images/public/Selec.png') no-repeat center
+		left;
+}
+
+.tapNormal  label, .tapChange  label {
+	padding-bottom: 0 !important;
+	padding-left: 0 !important;
+}
+
+.tapChange {
+	margin-bottom: 22px !important;
+	padding-bottom: 0;
+	padding-left: 30px;
+	background: url('../../../images/public/SelectPress.png') no-repeat
+		center left;
+}
+
+.correctLogo, .wrongLogo {
+	margin-top: auto;
+	margin-left: 0.5em;
+}
+
+.situation {
+	width: 85%;
+	max-width: 1139px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 7px 28px 0px rgba(0, 0, 0, 0.11);
+	margin: auto;
+	margin-top: 2em;
+	padding-bottom: 240px;
+	position: relative;
+}
+
+h3 {
+	min-width: 4em;
+}
+
+@media screen and (max-width: 760px) {
+	.title {
+		font-size: 16px;
+	}
+	.exerice {
+		padding-bottom: 93px;
+		padding-left: 13px;
+		padding-right: 13px;
+		padding-top: 34px;
+	}
+	li {
+		padding-bottom: 20px;
+	}
+	.items {
+		width: 91.4%;
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0px 7px 28px 0px rgba(0, 0, 0, 0.11);
+		margin: auto;
+		margin-top: 36px;
+		position: relative;
+	}
+	.situation {
+		width: 91%;
+		margin-top: 2em;
+		padding-bottom: 190px;
+	}
+	#questions {
+		width: 95%;
+		padding-top: 12px;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		margin: auto;
+		border: 1px soild red;
+	}
+	.trueItem {
+		margin-top: 2%;
+		margin-left: 1%;
+		width: 36px;
+		height: 36px;
+		background: rgba(102, 195, 151, 1);
+		border-radius: 50%;
+	}
+	.trueItem div {
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+	.falseItem {
+		margin-top: 2%;
+		margin-left: 1%;
+		width: 36px;
+		height: 36px;
+		background: rgba(255, 107, 112, 1);
+		border-radius: 50%;
+	}
+	.falseItem div {
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+	.answerSituation {
+		font-size: 16px;
+		font-family: PingFangHK-Semibold, PingFangHK;
+		font-weight: 600;
+		color: rgba(74, 74, 74, 1);
+		line-height: 30px;
+		margin: auto;
+		padding-top: 13px;
+	}
+	#intitle {
+		margin-left: 0em;
+		/*word-wrap: inherit;*/
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.choice_ul {
+		padding-left: 10px;
+	}
+	.falseItem {
+		margin-top: 2%;
+		margin-left: 1%;
+		width: 36px;
+		height: 36px;
+		background: rgba(255, 107, 112, 1);
+		border-radius: 50%;
+	}
+	.falseItem div {
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+}

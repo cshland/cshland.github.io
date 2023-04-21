@@ -1,0 +1,464 @@
+var score = undefined;
+var group = undefined;
+var key = undefined;
+var analysisIndex = 0;
+var maxcount = 0;
+var answerData = {};
+var customerAnswerData = {};
+var data = {};
+var engLishMap = ["A.", "B.", "C.", "D.", "E.", "F."];
+function findSchools(schoolName) {
+	var schools = [];
+	$.ajax({
+		url: getRootPath() + '/servlet/basiclaw/question/api/fraction/schools?',
+		async: false,
+		type: 'POST',
+		data: {
+			schoolName: schoolName,
+			group: group
+		},
+		success: function (result) {
+			schools = result.body;
+			return schools;
+		}, error: function (result) {
+		}
+	})
+	return schools;
+}
+
+function checkSchoolName(schoolName) {
+	var pass = true;
+	$.ajax({
+		url: getRootPath() + '/servlet/basiclaw/question/api/fraction/checkSchool?',
+		async: false,
+		type: 'POST',
+		data: {
+			schoolName: schoolName
+		},
+		success: function (result) {
+			pass = result.body;
+		}, error: function (result) {
+		}
+	})
+	return pass;
+}
+
+function setSchool(index) {
+	var school = $('.schoolItem').eq(index).find('span').text();
+	$('#school').val(school);
+	$('#schoolsBox').html("");
+	$('#schoolsBox').addClass('hiddenReback');
+}
+
+function showSchoolsInfo(event) {
+	var schoolName = $('#school').val();
+	last = event.timeStamp;
+	setTimeout(function () {
+		if (last - event.timeStamp == 0) {
+			if (schoolName != "") {
+				var schools = findSchools(schoolName);
+				var html = "";
+				if (schools.length != 0) {
+					for (var i = 0; i < schools.length; i++) {
+						html = html + '<p  onclick="setSchool(' + i + ')" class="schoolItem"><span >' + schools[i] + '</span></p>'
+					}
+				} else {
+					html = html + '<p class="noSchoolItem"><span >該關鍵字沒有找到相應的學校</span></p>'
+				}
+
+				$('#schoolsBox').html(html);
+				$('#schoolsBox').removeClass('hiddenReback');
+			} else {
+				$('#schoolsBox').html("");
+				$('#schoolsBox').addClass('hiddenReback');
+			}
+		}
+	}, 1000);
+}
+
+$(function () {
+
+	addVisitCount('fraction');
+
+	init();
+
+	$('#school').on('input', function (event) {
+		showSchoolsInfo(event);
+	});
+
+	$('#backHome').click(function () {
+		removeLocalStorage();
+		//window.location.href = getRootPath() + '/frontend/public/index.html';
+		window.location.href = '/elearning/index.html';
+	});
+
+	$('#submit').click(function () {
+		submit();
+	});
+	$('#restart').click(function () {
+		removeLocalStorage();
+		window.location.href = getRootPath() + '/frontend/public/assessment.html?group=' + group;
+	});
+
+	$('#answerInfoBtn').click(function () {
+		initAnswerInfo();
+		$('#form').addClass('hiddenReback');
+		$('#situationBox').removeClass('hiddenReback');
+
+	});
+
+	$('#errorAnalysis').click(function () {
+		errorAnalysis();
+	});
+
+	$('#nextAnalysis').click(function () {
+		nextAnalysisQestion();
+	});
+	$('#rebackAnalysis').click(function () {
+		rebackAnalysisQestion();
+	});
+	$('#backScore').click(function () {
+		$('#form').removeClass('hiddenReback');
+		$('#situationBox').addClass('hiddenReback');
+		$('#analysisBox').addClass('hiddenReback');
+	});
+});
+
+function init() {
+	maxcount = localStorage.getItem('maxcount');
+	data = JSON.parse(localStorage.getItem('data'));
+	answerData = JSON.parse(localStorage.getItem('answerData'));
+	customerAnswerData = JSON.parse(localStorage.getItem('customerAnswerData'));
+	group = localStorage.getItem('group');
+	score = localStorage.getItem('score');
+	key =localStorage.getItem('key');
+	if (group != undefined && score != undefined&& key != undefined) {
+		  $('#score').text(Math.round(score));
+		if(score=='100')
+			$('#scoreTip').text("分，可獲得抽獎機會 ，歡迎繼續參與！");
+		else
+		   $('#scoreTip').text("分，歡迎繼續參與！");
+		if (group == "TEACHER") {
+			$("#classDiv").addClass('hiddenReback');
+			$("#gradeDiv").addClass('hiddenReback');
+			$("#studentItem").addClass('hiddenReback');
+			$("#teacherItem").removeClass('hiddenReback');
+		}
+	} else {
+		alert("無法識別組別或分數，即將返回主頁。")
+		setTimeout(function () {
+			//window.location.href = getRootPath() + '/frontend/public/index.html';
+			window.location.href = '/elearning/index.html';
+		}, 2000)
+	}
+	if (group == "SIMULATION_TEST") {
+		$('#infoBox').html("");
+		$('#submit').addClass("hiddenReback");
+		$('#restart').addClass("hiddenReback");
+		removeLocalStorage();
+	}
+//	var html = '<option value=""></option>';
+//
+//	if (group == "PRIMARY") {
+//		html += '<option value="小四">小四</option>';
+//		html += '<option value="小五">小五</option>';
+//		html += '<option value="小六">小六</option>';
+//	} else if (group == "INTERMEDIATE") {
+//		html += '<option value="初一">初一</option>';
+//		html += '<option value="初二">初二</option>';
+//		html += '<option value="初三">初三</option>';
+//	} else if (group == "ADVANCED") {
+//		html += '<option value="高一">高一</option>';
+//		html += '<option value="高二">高二</option>';
+//		html += '<option value="高三">高三</option>';
+//	}
+//	$('#gradeSelect').append(html);
+
+}
+
+function removeLocalStorage() {
+	localStorage.removeItem('sorce');
+	localStorage.removeItem('key');
+	localStorage.removeItem('group');
+	localStorage.removeItem('maxcount');
+	localStorage.removeItem('data');
+	localStorage.removeItem('answerData');
+	localStorage.removeItem('customerAnswerData');
+}
+
+function check(item) {
+	var errorMsg = '';
+	var idCardFilter = /^[\@0-9]{4}$/;
+	var phoneFilter = /^[\@0-9]{8}$/;
+	var cardNoFilter = /^[\@0-9]{7}$/;
+//	var cardNoFilter = /^[0-9a-zA-Z]{8}$/;
+//	var cardNo1Filter = /^[0-9]{7}$/;
+//	var cardNo2Filter = /^[0-9a-zA-Z]{1}$/;
+
+	var cardNo = item.cardNo;
+	if (cardNo.length == 9 && cardNo.indexOf("-") != -1) {
+		var no1 = cardNo.substring(0, 7);
+		var no2 = cardNo.substring(8, 9);
+		item.cardNo = no1 + no2;
+	}
+
+	if (item.username == "" || item.phone == "" || item.school == "" || item.cardNo == "") {
+		errorMsg += "請填寫完整信息！\n";
+	} else {
+		if (!phoneFilter.test(item.phone)) {
+			errorMsg += "聯絡電話格式不正確！\n";
+		}
+		
+		if ( group != "JUNIOR_COLLEGE" && !cardNoFilter.test(item.cardNo)) {
+			if (group != "TEACHER")
+				errorMsg += "學生證格式不正確！請輸入7位數字,如：1234567-X,只填寫1234567 \n";
+			else
+				errorMsg += "教師證格式不正確！請輸入7位數字,如：1234567-X,只填寫1234567 \n";
+		}
+		
+//		if ( cardNoFilter.test(item.cardNo)) {
+////			var no1 = item.cardNo.substring(0, 7);
+////			var no2 = item.cardNo.substring(7, 8);
+////			if (!cardNo1Filter.test(no1) || !cardNo2Filter.test(no2)) {
+////				if (group != "TEACHER")
+////					errorMsg += "學生證格式不正確！1234567-X 或 1234567X \n";
+////				else
+////					errorMsg += "教師證格式不正確！1234567-X 或 1234567X \n";
+////			}
+//		} else {
+//			if (group != "TEACHER")
+//				errorMsg += "學生證格式不正確！請輸入7位數字,如：1234567-X,只填寫1234567 \n";
+//			else
+//				errorMsg += "教師證格式不正確！請輸入7位數字,如：1234567-X,只填寫1234567 \n";
+//		}
+
+	}
+//	if (errorMsg == '' && group != "TEACHER" && (item.grade == "" || item.schoolClass == "")) {
+//		errorMsg += "請填寫完整信息！\n";
+//	}
+
+	return errorMsg;
+}
+
+function submit() {
+	if (group != "SIMULATION_TEST") {
+		var item = {};
+		item.usedTime = localStorage.getItem('usedTime');
+		item.username = $('#name').val();
+		item.phone = $('#phone').val();
+		item.school = $('#school').val();
+		item.grade = $('#gradeSelect').val();
+		item.schoolClass = $('#schoolClass').val();
+		if (group == "TEACHER") {
+			item.cardNo = $('#teacherNo').val();
+		} else {
+			item.cardNo = $('#studentNo').val();
+		}
+
+		var errorMsg = check(item);
+		if (errorMsg == '') {
+			var pass = checkSchoolName(item.school);
+			if (!pass) {
+				errorMsg = "填寫的學校名稱不正確，請輸入關鍵字，選擇查詢到的學校。"
+			}
+		}
+		if (errorMsg == '') {
+			$('#msg').text("");
+			item.score = score;
+			item.group = group;
+			item.key = key;
+			$.ajax({
+				url: getRootPath() + '/servlet/basiclaw/question/api/test/submit',
+				type: "POST",
+				contentType: 'application/json',
+				async: false,
+				dataType: "json",
+				data: JSON.stringify(item),
+				success: function (result) {
+					if (result) {
+						removeLocalStorage();
+
+						alert("提交成功，即將返回主頁！");
+						setTimeout(function () {
+							//window.location.href = getRootPath() + '/frontend/public/index.html';
+							window.location.href = '/elearning/index.html';
+						}, 2000)
+					} else {
+						alert("提交失敗，系統檢測不到考試成績。同時進行多個考試，系統默認最新的分數為准，請勿重複提交");
+					}
+				},
+				error: function (result) {
+					alert("提交失敗，請重新再試。");
+				}
+			})
+		} else {
+			$('#msg').text(errorMsg);
+		}
+	} else {
+		alert("無法提交該類型的測試成績。")
+	}
+
+}
+
+function format(time, format) {   //前台获取时间，转化为国际时间，可以当做工具使用
+	var t = new Date(time);
+	var tf = function (i) { return (i < 10 ? '0' : "") + i };
+	return format.replace(/yyyy|MM|dd|HH|mm|ss/g, function (a) {
+		switch (a) {
+			case 'yyyy':
+				return tf(t.getFullYear());
+				break;
+			case 'MM':
+				return tf(t.getMonth() + 1);
+				break;
+			case 'mm':
+				return tf(t.getMinutes());
+				break;
+			case 'dd':
+				return tf(t.getDate());
+				break;
+			case 'HH':
+				return tf(t.getHours());
+				break;
+			case 'ss':
+				return tf(t.getSeconds());
+				break;
+		}
+	})
+}
+
+function initAnswerInfo() {
+
+	$('#questions').html("");
+	for (var i = 0; i < maxcount; i++) {
+		var answer = answerData[i];
+		var customerAnswer = customerAnswerData[i];
+		var j = i + 1;
+		var num = "";
+		if (j < 10) {
+			num = '0' + j;
+		} else {
+			num = j;
+		}
+		if (customerAnswer != undefined) {
+			$('#questions').append("<div class='trueItem'><div>" + num + "</div></div>");
+		} else {
+			$('#questions').append("<div class='falseItem'><div>" + num + "</div></div>");
+		}
+	}
+	$('#form').addClass('hiddenReback');
+	$('#situationBox').removeClass('hiddenReback');
+}
+
+
+function rebackAnalysisQestion() {
+	analysisIndex--;
+	changeAnalysisBtnClass();
+	initAnalysisQestionDiv();
+}
+
+
+function nextAnalysisQestion() {
+	analysisIndex++;
+	changeAnalysisBtnClass();
+	initAnalysisQestionDiv();
+}
+
+
+function changeAnalysisBtnClass() {
+	if (analysisIndex == maxcount - 1) {
+		$("#nextAnalysis").addClass('hiddenReback');
+	} else {
+		$("#nextAnalysis").removeClass('hiddenReback');
+		if (analysisIndex == 0) {
+			$("#rebackAnalysis").addClass('hiddenReback');
+		} else {
+			$("#rebackAnalysis").removeClass('hiddenReback');
+		}
+	}
+}
+
+function initAnalysisQestionDiv() {
+	var customerAnswer = customerAnswerData[analysisIndex];
+	var answer = answerData[analysisIndex];
+	var question = data[analysisIndex];
+
+	var j = analysisIndex + 1;
+	if (j < 10)
+		j = "0" + j;
+
+	var pass = false;
+	if (answer != undefined && customerAnswer != undefined)
+		if (answer.toString() == customerAnswer) {
+			pass = true;
+		}
+
+	$("#intitle").html(question.text);
+	$("#analysis_ul").children().remove();
+	if (question.type == "MultipleChoiceQuestion") {
+		$('#analysisLogo').text("單選題 " + j);
+		for (var i = 0; i < question.m_Choices.length; i++) {
+			var choice = question.m_Choices[i];
+			var value = question.m_ChoicesMap[choice];
+			if (value == answer) {
+				if (pass) {
+					$("#analysis_ul").append("<li class='tapChange'><label class='right'>" + engLishMap[i] + " " + choice + "</label><span class='correctLogo'><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></span></li>");
+				} else {
+					if (customerAnswer == undefined) {
+						$("#analysis_ul").append("<li class='tapNormal'><label>" + engLishMap[i] + " " + choice + "</label><span></span></li>");
+					} else {
+						$("#analysis_ul").append("<li class='tapNormal'><label class='right'>" + engLishMap[i] + " " + choice + "</label><span class='correctLogo'><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></span></li>");
+					}
+				}
+			} else if (value == customerAnswer) {
+				$("#analysis_ul").append("<li class='tapChange'><span class='wrong'>" + engLishMap[i] + " " + choice + "</label><span class='correctLogo'><image class='correctLogo' src='../../images/public/WrongAnswer.png'/></span></li>");
+			} else {
+				$("#analysis_ul").append("<li class='tapNormal'><label>" + engLishMap[i] + " " + choice + "</label><span></span></li>");
+			}
+		}
+
+	} else if (question.type == "TrueOrFalseQuestion") {
+		$('#analysisLogo').text("判斷題 " + j);
+		if (answer == true || answer == "true") {
+			if (pass) {
+				$("#analysis_ul").append("<li class='tapChange'><label class='right'>對</label><span class='correctLogo'><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></span></li>");
+				$("#analysis_ul").append("<li class='tapNormal'><label >錯</label><span ></span></li>");
+			} else {
+
+				if (customerAnswer == undefined) {
+					$("#analysis_ul").append("<li class='tapNormal'><label >對</label><span ></span></li>");
+					$("#analysis_ul").append("<li class='tapNormal'><label >錯</label><span ></span></li>");
+				} else {
+					$("#analysis_ul").append("<li class='tapNormal'><label class='right'>對</label><span ><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></span></li>");
+					$("#analysis_ul").append("<li class='tapChange'><label class='wrong'>錯</label><span class='wrongLogo'><image class='wrongLogo' src='../../images/public/WrongAnswer.png'/></span></li>");
+				}
+			}
+		} else {
+			if (!pass) {
+				if (customerAnswer == undefined) {
+					$("#analysis_ul").append("<li class='tapNormal'><label >對</label><span ></span></li>");
+					$("#analysis_ul").append("<li class='tapNormal'><label >錯</label></li>");
+				} else {
+					$("#analysis_ul").append("<li class='tapChange'><label class='wrong'>對</label><span class='wrongLogo'><image class='wrongLogo' src='../../images/public/WrongAnswer.png'/></span></li>");
+					$("#analysis_ul").append("<li class='tapNormal'><label class='right'>錯</label><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></li>");
+				}
+
+			} else {
+				$("#analysis_ul").append("<li class='tapNormal'><label >對</label><span ></span></li>");
+				$("#analysis_ul").append("<li class='tapChange'><label class='right'>錯</label><span class='correctLogo'><image class='correctLogo' src='../../images/public/CorrectAnswer.png'/></span></li>");
+			}
+		}
+	}
+
+
+}
+
+function errorAnalysis() {
+	$('#situationBox').addClass('hiddenReback');
+	$('#analysisBox').removeClass('hiddenReback');
+	$("#reback").addClass('hiddenReback');
+	analysisIndex = 0;
+
+	initAnalysisQestionDiv();
+}
+
