@@ -5,11 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Draw</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
     <style>
         #draw {
-            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        button {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 24px;
+            background-color: skyblue;
+            
         }
     </style>
 </head>
@@ -23,41 +39,46 @@
         <p id="l5"></p>
         <p id="l6"></p>
 
-        <button py-click="f()">抽籤</button>
+        <button onclick="f()">抽籤</button>
     </div>
-    
-    <py-script>
-        import random
-        def f():
-            a = []
-            for i in range(1,37):
-                a.append(i)
-            b = []
 
-            while(a!=[]):
-                t = random.choice(a)
-                b.append(t)
-                a.remove(t)
+    <script>
+        function f() {
+            let a = [];
+            for (let i = 1; i <= 36; i++) {
+                a.push(i);
+            }
+            let b = [];
 
-            while(b!=[]):
-                t = random.choice(b)
-                a.append(t)
-                b.remove(t)
+            while (a.length > 0) {
+                let t = a[Math.floor(Math.random() * a.length)];
+                b.push(t);
+                a.splice(a.indexOf(t), 1);
+            }
 
-            s = ""
-            for i in range(0,36):
-                if(a[i] <= 9):
-                    s +="0" + str(a[i]) +" " 
-                else:
-                    s +=str(a[i]) + " "
-        
-            Element("l1").element.innerHTML = s[0:17]
-            Element("l2").element.innerHTML = s[18:35]
-            Element("l3").element.innerHTML = s[36:53]
-            Element("l4").element.innerHTML = s[54:71]
-            Element("l5").element.innerHTML = s[72:89]
-            Element("l6").element.innerHTML = s[90:]
-    </py-script>
+            while (b.length > 0) {
+                let t = b[Math.floor(Math.random() * b.length)];
+                a.push(t);
+                b.splice(b.indexOf(t), 1);
+            }
+
+            let s = "";
+            for (let i = 0; i < 36; i++) {
+                if (a[i] <= 9) {
+                    s += "0" + a[i] + " ";
+                } else {
+                    s += a[i] + " ";
+                }
+            }
+
+            document.getElementById("l1").innerHTML = s.slice(0, 17);
+            document.getElementById("l2").innerHTML = s.slice(18, 35);
+            document.getElementById("l3").innerHTML = s.slice(36, 53);
+            document.getElementById("l4").innerHTML = s.slice(54, 71);
+            document.getElementById("l5").innerHTML = s.slice(72, 89);
+            document.getElementById("l6").innerHTML = s.slice(90);
+        }
+    </script>
 </body>
 
 </html>
