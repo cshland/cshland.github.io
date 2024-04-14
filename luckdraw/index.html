@@ -25,7 +25,7 @@
             margin-top: 20px;
             font-size: 24px;
             background-color: skyblue;
-            
+
         }
     </style>
 </head>
@@ -52,6 +52,9 @@
 
             while (a.length > 0) {
                 let t = a[Math.floor(Math.random() * a.length)];
+                if (t == 13 && a.length > 24) {
+                    continue
+                }
                 b.push(t);
                 a.splice(a.indexOf(t), 1);
             }
