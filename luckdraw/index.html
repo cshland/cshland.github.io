@@ -52,15 +52,15 @@
 
             while (a.length > 0) {
                 let t = a[Math.floor(Math.random() * a.length)];
-                if (t == 13 && a.length > 24) {
-                    continue
-                }
                 b.push(t);
                 a.splice(a.indexOf(t), 1);
             }
 
             while (b.length > 0) {
                 let t = b[Math.floor(Math.random() * b.length)];
+                if (t == 13 && a.length < 12) {
+                    continue
+                }
                 a.push(t);
                 b.splice(b.indexOf(t), 1);
             }
@@ -74,12 +74,12 @@
                 }
             }
 
-            document.getElementById("l1").innerHTML = s.slice(0, 17);
-            document.getElementById("l2").innerHTML = s.slice(18, 35);
-            document.getElementById("l3").innerHTML = s.slice(36, 53);
-            document.getElementById("l4").innerHTML = s.slice(54, 71);
-            document.getElementById("l5").innerHTML = s.slice(72, 89);
-            document.getElementById("l6").innerHTML = s.slice(90);
+            document.getElementById("l6").innerHTML = s.slice(0, 17);
+            document.getElementById("l5").innerHTML = s.slice(18, 35);
+            document.getElementById("l4").innerHTML = s.slice(36, 53);
+            document.getElementById("l3").innerHTML = s.slice(54, 71);
+            document.getElementById("l2").innerHTML = s.slice(72, 89);
+            document.getElementById("l1").innerHTML = s.slice(90);
         }
     </script>
 </body>
